@@ -5,6 +5,15 @@ require('dotenv').config();
 // Mount the express.static() middleware to the path /public.
 app.use("/public", express.static(__dirname + "/public"));
 
+app.use((req, res, next) => {
+    var method = req.method;
+    var path = req.path;
+    var ip = req.ip;
+
+    console.log(`${method} ${path} - ${ip}`);
+    next();
+});
+
 app.get('/', (req, res) => {
     let path = __dirname + '/views/index.html';
     res.sendFile(path);
