@@ -1,1 +1,3 @@
 # [Introduction to the Basic Node and Express Challenges](https://www.freecodecamp.org/learn/apis-and-microservices/basic-node-and-express/)
+
+* Regarding the .ENV challenge: In order to complete this challenge, I had to install the dotenv package and then require it as part of myApp.js. That worked great locally but FCC checks a public site. To sort this out, I had to add a config variable in Heroku such that MESSAGE_STYLE=uppercase.
