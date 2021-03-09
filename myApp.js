@@ -5,6 +5,12 @@ require('dotenv').config();
 // Mount the express.static() middleware to the path /public.
 app.use("/public", express.static(__dirname + "/public"));
 
+app.get('/:word/echo', (req, res, next) => {
+    res.send({
+        echo: req.params.word
+    });
+});
+
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
