@@ -23,6 +23,12 @@ app.route('/name').get((req, res, next) => {
     });
 }).post((req, res, next) => {
     // Post.
+    const firstName = req.body.first;
+    const lastName = req.body.last;
+
+    res.send({
+        name: `${firstName} ${lastName}`
+    });
 });
 
 app.get('/now', (req, res, next) => {
