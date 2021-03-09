@@ -11,6 +11,17 @@ app.get('/:word/echo', (req, res, next) => {
     });
 });
 
+app.route('/name').get((req, res, next) => {
+    const firstName = req.query.first || '';
+    const lastName = req.query.last || '';
+
+    res.send({
+        name: `${firstName} ${lastName}`
+    });
+}).post((req, res, next) => {
+    // Post.
+});
+
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
