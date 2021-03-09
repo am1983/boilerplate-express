@@ -1,9 +1,12 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+
 require('dotenv').config();
 
 // Mount the express.static() middleware to the path /public.
 app.use("/public", express.static(__dirname + "/public"));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/:word/echo', (req, res, next) => {
     res.send({
